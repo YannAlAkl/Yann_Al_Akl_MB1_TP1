@@ -5,6 +5,7 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doAfterTextChanged
 import com.example.yannalakl_mb1_tp1.databinding.ActivityMainBinding
 import java.text.SimpleDateFormat
 import java.util.*
@@ -21,22 +22,38 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        clearButtonStatus()
+
         binding.birthdate.setOnClickListener {
             showDatePickerDialog()
         }
         binding.submit.setOnClickListener {
             submit()
         }
+        binding.firstName.doAfterTextChanged { clearButtonStatus() }
+
         binding.clear.setOnClickListener {
-            // Clear the text in all EditText fields
             binding.firstName.setText("")
             binding.lastName.setText("")
 
-            // Optional: Remove focus from the fields and hide the keyboard
             binding.birthdate.text = "BIRTHDATE"
             binding.nbCats.setText("")
             binding.nbDogs.setText("")
         }
+
+    }
+    private fun clearButtonStatus(){
+
+        val enable = !binding.firstName.text.toString().isNotEmpty() ||
+                     !binding.lastName.text.toString().isNotEmpty()||
+                     !binding.birthdate.text.toString().isNotEmpty()||
+                     !binding.nbCats.text.toString().isNotEmpty() ||
+                     !binding.nbDogs.text.toString().isNotEmpty()
+
+        binding.clear.isEnabled = enable
+
+
+
     }
     private fun showDatePickerDialog() {
         val datePickerDialog = DatePickerDialog(
@@ -51,6 +68,8 @@ class MainActivity : AppCompatActivity() {
         )
         datePickerDialog.show()
     }
+
+    //tst
 
     private fun updateDateLabel(year: Int, month: Int, day: Int) {
         calendar.set(Calendar.YEAR, year)

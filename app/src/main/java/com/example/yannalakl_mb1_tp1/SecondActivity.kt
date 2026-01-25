@@ -15,7 +15,7 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivitySecondBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_second)
+        setContentView(binding.root)
         val msg = intent.getStringExtra("message")
         binding.welcomeText.text = msg
         }
