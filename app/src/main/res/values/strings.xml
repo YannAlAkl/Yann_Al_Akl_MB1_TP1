@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Yann Al Akl-MB1-TP1</string>
+    <string name="title">ExempleTP1\n</string>
+    <string name="firstName">First Name\n</string>
+    <string name="lastName">Last Name\n</string>
+    <string name="birthdate">BIRTHDATE</string>
+    <string name="nbCats">Number of cats</string>
+    <string name="nbDogs">Number of dogs\n</string>
+    <string name="submit">SUBMIT</string>
+    <string name="clear">CLEAR</string>
+    <string name="hello">hello</string>
+</resources>
