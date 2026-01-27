@@ -1,9 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.YannAlAklMB1TP1" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+    <style name="Theme.YannAlAklMB1TP1.MainActivity"
+        parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/blueGreen</item>
     </style>
 
-    <style name="Theme.YannAlAklMB1TP1" parent="Base.Theme.YannAlAklMB1TP1" />
+    <style name="Theme.YannAlAklMB1TP1.SecondActivity" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/blueGreen</item>
+    </style>
+
 </resources>

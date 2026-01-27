@@ -10,10 +10,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.YannAlAklMB1TP1">
+        android:theme="@style/Theme.YannAlAklMB1TP1.MainActivity">
         <activity
             android:name=".SecondActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.YannAlAklMB1TP1.SecondActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

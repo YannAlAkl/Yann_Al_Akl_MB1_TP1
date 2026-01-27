@@ -9,52 +9,56 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="399dp"
-        android:layout_height="53dp"
+        android:layout_width="401dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="28dp"
+        android:background="@color/blueGreen"
         android:text="@string/title"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:paddingLeft="22dp"
         app:layout_constraintBottom_toTopOf="@+id/firstName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.416"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <EditText
         android:id="@+id/firstName"
-        android:layout_width="201dp"
-        android:layout_height="43dp"
+        android:layout_width="203dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="84dp"
         android:hint="@string/firstName"
         android:inputType=""
-        app:layout_constraintBottom_toTopOf="@+id/birthdate"
         app:layout_constraintEnd_toStartOf="@+id/lastName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title"
         tools:ignore="Autofill" />
 
-
     <EditText
         android:id="@+id/lastName"
-        android:layout_width="186dp"
-        android:layout_height="41dp"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
         android:autofillHints=""
         android:hint="@string/lastName"
         app:layout_constraintBottom_toTopOf="@+id/birthdate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/firstName"
         app:layout_constraintTop_toBottomOf="@+id/title"
-        app:layout_constraintVertical_bias="0.297"
+        app:layout_constraintVertical_bias="0.488"
         tools:ignore="TextFields" />
+
     <Button
         android:id="@+id/birthdate"
         android:layout_width="290dp"
         android:layout_height="44dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="88dp"
         android:backgroundTint="@color/blueGreen"
         android:text="@string/birthdate"
         app:cornerRadius="0dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.541"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/firstName" />
 
@@ -62,7 +66,7 @@
         android:id="@+id/nbCats"
         android:layout_width="185dp"
         android:layout_height="44dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="72dp"
         android:autofillHints=""
         android:hint="@string/nbCats"
         app:layout_constraintEnd_toStartOf="@+id/nbDogs"
@@ -82,7 +86,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/nbCats"
         app:layout_constraintTop_toBottomOf="@+id/birthdate"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"/>
 
     <Button
         android:id="@+id/submit"
@@ -95,7 +99,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nbCats" />
+        app:layout_constraintTop_toBottomOf="@+id/nbCats"/>
 
     <Button
         android:id="@+id/clear"
@@ -108,5 +112,6 @@
         app:layout_constraintTop_toBottomOf="@+id/submit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
