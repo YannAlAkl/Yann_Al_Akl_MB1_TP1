@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
@@ -20,10 +21,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.statusBarColor = ContextCompat.getColor(this, R.color.blueGreen)
-        }
-        clearButtonStatus()
+
 
         binding.birthdate.setOnClickListener {
             showDatePickerDialog()
@@ -41,14 +39,27 @@ class MainActivity : AppCompatActivity() {
             binding.nbCats.setText("")
             binding.nbDogs.setText("")
         }
+        setupWatcher()
+
+        clearButtonStatus()
+    }
+    private fun showErrorMessage(){
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.error_title))
+            .setMessage(getString(R.string.error_message))
+            .setPositiveButton(getString(R.string.ok),null)
+            .show()
+
+
+
     }
     private fun clearButtonStatus(){
 
-        val enable = !binding.firstName.text.toString().isNotEmpty() ||
-                     !binding.lastName.text.toString().isNotEmpty()||
-                     !binding.birthdate.text.toString().isNotEmpty()||
-                     !binding.nbCats.text.toString().isNotEmpty() ||
-                     !binding.nbDogs.text.toString().isNotEmpty()
+        val enable = binding.firstName.text.toString().isNotEmpty() ||
+                     binding.lastName.text.toString().isNotEmpty()||
+
+                     binding.nbCats.text.toString().isNotEmpty() ||
+                     binding.nbDogs.text.toString().isNotEmpty()
 
         binding.clear.isEnabled = enable
     }
@@ -83,6 +94,12 @@ class MainActivity : AppCompatActivity() {
         val nbCats = binding.nbCats.text.toString().trim()
         val nbDogs = binding.nbDogs.text.toString().trim()
 
+        if (firstName.isEmpty()
+            || lastName.isEmpty() ||birthdate.isEmpty() ||nbCats.isEmpty() ||
+            nbDogs.isEmpty()){
+            showErrorMessage()
+            return
+        }
         val fullBirthDate = birthdate.substringAfterLast("-").toInt()
         val toDayDate = Calendar.getInstance().get(Calendar.YEAR)
         val age = toDayDate - fullBirthDate
@@ -95,12 +112,19 @@ class MainActivity : AppCompatActivity() {
           "neutral animal"
     }
 
-        val message = "hello $firstName, $lastName.You are $age years old and are a $animalPerson person"
+        val message = "hello $firstName, $lastName.You are $age years old and you are a $animalPerson person"
 
-        binding.birthdate.text=message
+
         val intent = Intent(this, SecondActivity::class.java)
             intent.putExtra("message",message)
             startActivity(intent)
+    }
+    private fun setupWatcher(){
+        binding.firstName.doAfterTextChanged { clearButtonStatus() }
+        binding.lastName.doAfterTextChanged { clearButtonStatus() }
+        binding.nbCats.doAfterTextChanged { clearButtonStatus() }
+        binding.nbDogs.doAfterTextChanged { clearButtonStatus() }
+
     }
 }
 

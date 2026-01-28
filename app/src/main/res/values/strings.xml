@@ -9,4 +9,7 @@
     <string name="submit">SUBMIT</string>
     <string name="clear">CLEAR</string>
     <string name="hello">Hello</string>
+    <string name="error_title">Error title</string>
+    <string name="error_message">Error message</string>
+    <string name="ok">Ok</string>
 </resources>
